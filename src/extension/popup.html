@@ -3,24 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Prompt Enhancer</title>
+  <title></title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/styles/index.css" />
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"/>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
           colors: {
             brand: '#1E40AF',
           },
+          backdropBlur: {
+            xs: '2px',
+          }
         }
       }
     }
   </script>
 </head>
-<body class="p-4 bg-gray-50">
-  <div class="max-w-sm mx-auto">
-    <h1 class="text-2xl font-bold mb-4 text-center text-brand">I'm alive!</h1>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+  <div class="glass-effect w-96 mx-auto rounded-2xl p-6 shadow-2xl">
+    <div class="text-center mb-8">
+      <h1 class="text-2xl font-sans font-medium text-white text-glow mb-2">
+        better prompt
+      </h1>
+      <div class="inline-flex items-center justify-center mb-4">
+        <h2 class="text-lg font-sans font-light text-white text-glow">
+          powered by a local LLM
+        </h2>
+        <img
+          src="assets/images/llama.png"
+          alt="Local LLM icon"
+          class="w-6 h-6 ml-1 pb-1"
+        />
+      </div>
+      <div class="w-16 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full opacity-60"></div>
+    </div>
+    
+    <div class="space-y-4">
+      <button class="button-glass font-sans w-full py-4 px-6 text-white font-medium text-lg flex items-center justify-center group">
+        <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+        </svg>
+        Scrape prompt
+      </button>
+      
+      <button class="button-glass font-sans w-full py-4 px-6 text-white font-medium text-lg flex items-center justify-center group">
+        <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+        New prompt
+      </button>
+    </div>
+
+    <div>
+      <p class="text-sm text-gray-400 mt-6 text-center">
+        Version 0.1.0
+      </p>
+    </div>
+  
   </div>
-  <script src="popup.js"></script>
+  
+  <script>
+    // boilerplate JS to handle button clicks
+    // we can keep this script here since buth buttons will redirect to different pages
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrapeButton = document.querySelector('button:first-of-type');
+      const newPromptButton = document.querySelector('button:last-of-type');
+      
+      scrapeButton.addEventListener('click', function() {
+        console.log('Scrape prompt clicked');
+      });
+      
+      newPromptButton.addEventListener('click', function() {
+        console.log('New prompt clicked');
+      });
+    });
+  </script>
 </body>
 </html>
