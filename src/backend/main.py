@@ -16,12 +16,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# mounting the browsers extension's source to the src/ directory
-app.mount(
-    "/static",
-    StaticFiles(directory="../extension", html=True),
-    name="static"
-)
+# loading any static content or assets
+app.mount("/static", StaticFiles(directory="../extension", html=True), name="static")
+app.mount("/assets", StaticFiles(directory="../extension/assets"), name="assets")
 
 # serve popup.html at root to build out popup UI
 @app.get("/")
